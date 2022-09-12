@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
-import { createStyles, Header, Container, Group, Burger } from "@mantine/core";
+import {
+  Header,
+  Container,
+  Group,
+  Burger,
+  Transition,
+  Paper,
+  Image,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { MantineLogo } from "@mantine/ds";
-import { useStyles } from "./css";
+import { HEADER_HEIGHT, useStyles } from "./css";
 
 type Props = {
   links: { label: string; value: string }[];
+  img: File | null;
 };
 
-export function CustomHeader({ links }: Props) {
+export function CustomHeader({ img, links }: Props) {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState<String>("");
   const { classes, cx } = useStyles();
@@ -37,9 +46,15 @@ export function CustomHeader({ links }: Props) {
   }, [links]);
 
   return (
-    <Header height={60} mb={120}>
+    <Header height={HEADER_HEIGHT} mb={120}>
       <Container className={classes.header}>
-        <MantineLogo size={28} />
+        <Image
+          width={120}
+          height={40}
+          alt="With default placeholder"
+          withPlaceholder
+          src={img ? URL.createObjectURL(img) : undefined}
+        />
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
@@ -50,6 +65,14 @@ export function CustomHeader({ links }: Props) {
           className={classes.burger}
           size="sm"
         />
+
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles: any) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+            </Paper>
+          )}
+        </Transition>
       </Container>
     </Header>
   );

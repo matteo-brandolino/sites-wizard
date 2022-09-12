@@ -10,12 +10,15 @@ import {
 import { useForm } from "@mantine/form";
 import { randomId } from "@mantine/hooks";
 import { IconTrash } from "@tabler/icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { CustomFileButton } from "../FileButton";
 import { CustomHeader } from "./CustomHeader";
 
 type Props = {};
 
 function CustomHeaderWrapper({}: Props) {
+  const [file, setFile] = useState<File | null>(null);
+
   const form = useForm({
     validateInputOnChange: true,
     initialValues: {
@@ -56,7 +59,7 @@ function CustomHeaderWrapper({}: Props) {
 
   return (
     <>
-      <CustomHeader links={form.values?.links} />
+      <CustomHeader img={file} links={form.values?.links} />
       <Box sx={{ maxWidth: 600 }} mx="auto">
         <>
           <NumberInput
@@ -92,6 +95,7 @@ function CustomHeaderWrapper({}: Props) {
               Add Link
             </Button>
           </Group>
+          <CustomFileButton file={file} setFile={setFile} />
         </>
       </Box>
     </>
