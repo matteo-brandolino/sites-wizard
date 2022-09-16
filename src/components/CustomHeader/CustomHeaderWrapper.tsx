@@ -95,7 +95,7 @@ function CustomHeaderWrapper({}: Props) {
               Add Link
             </Button>
           </Group>
-          <CustomFileButton file={file} setFile={setFile} />
+          <CustomFileButton file={file} setFile={setFile} />  
         </>
       </Box>
     </>

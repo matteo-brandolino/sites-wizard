@@ -1,16 +1,16 @@
 type Props = {
-    header: JSX.Element
+    header: JSX.Element,
+    hero: JSX.Element,
 }
 
-export function Layout({header}: Props) {
+export function Layout({header, hero}: Props) {
   return (
     <main>
         <section id="header">
           {header}
         </section>
-        <section id="section-2">
-          <h1>Section 2</h1>
-          <p>Ratione nulla nam, ipsa dignissimos corrupti veniam nostrum, laudantium asperiores sequi numquam placeat velit voluptate in praesentium non labore unde incidunt laborum maxime quae magni.</p>
+        <section id="hero">
+          {hero}
         </section>
         <section id="section-3">
           <h1>Section 3</h1>

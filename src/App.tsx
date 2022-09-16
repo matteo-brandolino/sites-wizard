@@ -3,6 +3,7 @@ import { SideNav } from "./components/SideNav";
 import { Layout } from "./components/Layout";
 import CustomHeaderWrapper from "./components/CustomHeader/CustomHeaderWrapper";
 import { MantineProvider } from "@mantine/core";
+import CustomHeroWrapper from "./components/CustomHero/CustomHeroWrapper";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       }}
     >
       <SideNav />
-      <Layout header={<CustomHeaderWrapper />} />
+      <Layout header={<CustomHeaderWrapper />} hero={<CustomHeroWrapper />} />
     </MantineProvider>
   );
 }
