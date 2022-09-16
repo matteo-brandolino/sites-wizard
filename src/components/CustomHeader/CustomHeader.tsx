@@ -9,6 +9,7 @@ import {
   Image,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { MantineLogo } from "@mantine/ds";
 import { HEADER_HEIGHT, useStyles } from "./css";
 
 type Props = {
