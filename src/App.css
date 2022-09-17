@@ -33,6 +33,7 @@ main {
 section {
   padding: 2rem;
   margin: 0 0 2rem 0;
+  height: 100vh;
 }
 footer {
   grid-column: 1 / 3;
