@@ -4,8 +4,11 @@ import { Layout } from "./components/Layout";
 import CustomHeaderWrapper from "./components/CustomHeader/CustomHeaderWrapper";
 import { MantineProvider } from "@mantine/core";
 import CustomHeroWrapper from "./components/CustomHero/CustomHeroWrapper";
+import { getIdFromProp } from "./helpers/helpers";
 
 function App() {
+  const components = [<CustomHeaderWrapper />, <CustomHeroWrapper />]
+  if (components.length < 0) return
   return (
     <MantineProvider
       inherit
@@ -25,7 +28,7 @@ function App() {
       }}
     >
       <SideNav />
-      <Layout header={<CustomHeaderWrapper />} hero={<CustomHeroWrapper />} />
+      <Layout sections={components} />
     </MantineProvider>
   );
 }

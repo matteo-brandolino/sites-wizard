@@ -27,7 +27,7 @@ const data = [
 export function SideNav() {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState<String>('Header');
-  //TO DO UPDATE HIGHLIGHT SIDENAV
+  
   const links = data.map((item) => (
     <a
       className={cx(classes.link, { [classes.linkActive]: item.label === active })}
