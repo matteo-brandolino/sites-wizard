@@ -1,14 +1,12 @@
-import { getIdFromProp } from "../../helpers/helpers"
+import { getIdFromProp } from "../../helpers"
+import { JSXElementArray } from "../../types"
 
-type LayoutProps = {
-  sections: JSX.Element[]
-}
-export function Layout({sections}: LayoutProps) {
+export function Layout({components}: JSXElementArray) {
   return (
     <main>
-      {sections.length > 0 && sections.map(section => (
-        <section key={section.type.name} id={getIdFromProp(section.type.name)}>
-          {section}
+      {components.length > 0 && components.map(component => (
+        <section key={component.type.name} id={getIdFromProp(component.type.name)}>
+          {component}
         </section>
       ))}
     </main>

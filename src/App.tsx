@@ -4,7 +4,6 @@ import { Layout } from "./components/Layout";
 import CustomHeaderWrapper from "./components/CustomHeader/CustomHeaderWrapper";
 import { MantineProvider } from "@mantine/core";
 import CustomHeroWrapper from "./components/CustomHero/CustomHeroWrapper";
-import { getIdFromProp } from "./helpers/helpers";
 
 function App() {
   const components = [<CustomHeaderWrapper />, <CustomHeroWrapper />]
@@ -27,8 +26,8 @@ function App() {
         },
       }}
     >
-      <SideNav />
-      <Layout sections={components} />
+      <SideNav components={components} />
+      <Layout components={components} />
     </MantineProvider>
   );
 }
