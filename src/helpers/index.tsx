@@ -1,14 +1,14 @@
 import { links, TablerIcon } from "./../types/index.d";
-import { IconBellRinging, IconFingerprint, IconKey } from "@tabler/icons";
+import { IconLayoutNavbar, IconPolaroid } from "@tabler/icons";
 
 const getLabelIcon = (match: string): TablerIcon => {
   switch (match) {
     case "header":
-      return IconBellRinging;
+      return IconLayoutNavbar;
     case "hero":
-      return IconFingerprint;
+      return IconPolaroid;
     default:
-      return IconKey;
+      return IconPolaroid;
   }
 };
 

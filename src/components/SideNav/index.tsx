@@ -41,8 +41,7 @@ export function SideNav({ components }: JSXElementArray) {
     <Navbar className={classes.navbar} width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <MantineLogo size={28} />
-          <Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
+          <em>Sites Wizard</em>
         </Group>
         {links}
       </Navbar.Section>
