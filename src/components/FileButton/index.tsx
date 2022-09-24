@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { FileButton, Button, Group, Text } from "@mantine/core";
+import { CustomButton } from "../common/CustomButton";
 
 type CustomFileButtonProps = {
   file: File | null;
@@ -21,11 +22,9 @@ export function CustomFileButton({ file, setFile }: CustomFileButtonProps) {
           onChange={setFile}
           accept="image/png,image/jpeg"
         >
-          {(props) => <Button {...props}>Upload image</Button>}
+          {(props) => <CustomButton label="UploadImage" {...props} />}
         </FileButton>
-        <Button disabled={!file} color="red" onClick={clearFile}>
-          Reset
-        </Button>
+        <CustomButton label="Reset" disabled={!file} color="red" onClick={clearFile} />
       </Group>
       {file && (
         <>

@@ -1,4 +1,5 @@
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
+import { CustomButton } from "../common/CustomButton";
 import { useStyles } from "./css";
 
 type Props = {
@@ -13,14 +14,15 @@ function CustomHero({ title, subTitle, img, buttons }: Props) {
   const buttonsToRender =
     buttons.length > 0 &&
     buttons.map((button, index) => (
-      <Button
+      <CustomButton
+        label={button.label}
         key={button.value}
-        className={index === 1 ? cx(classes.control, classes.secondaryControl) : classes.control}
-        variant="white"
-        size="lg"
-      >
-        {button.label}
-      </Button>
+        className={
+          index === 1
+            ? cx(classes.control, classes.secondaryControl)
+            : classes.control
+        }
+      />
     ));
   return (
     <div className={classes.wrapper}>
@@ -35,9 +37,7 @@ function CustomHero({ title, subTitle, img, buttons }: Props) {
           </Text>
         </Container>
 
-        <div className={classes.controls}>
-          {buttonsToRender}
-        </div>
+        <div className={classes.controls}>{buttonsToRender}</div>
       </div>
     </div>
   );

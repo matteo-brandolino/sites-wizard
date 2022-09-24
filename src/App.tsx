@@ -7,7 +7,7 @@ import CustomHeroWrapper from "./components/CustomHero/CustomHeroWrapper";
 
 function App() {
   const components = [<CustomHeaderWrapper />, <CustomHeroWrapper />]
-  if (components.length < 0) return
+  if (components.length < 0) return <></>
   return (
     <MantineProvider
       inherit

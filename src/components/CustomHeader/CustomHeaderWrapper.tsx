@@ -6,17 +6,22 @@ import {
   Text,
   Button,
   NumberInput,
+  Paper,
+  Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { randomId } from "@mantine/hooks";
 import { IconTrash } from "@tabler/icons";
 import { useEffect, useState } from "react";
+import { CustomButton } from "../common/CustomButton";
 import { CustomFileButton } from "../FileButton";
+import { useStyles } from "./css/customHeaderWrapperCss";
 import { CustomHeader } from "./CustomHeader";
 
 type Props = {};
 
 function CustomHeaderWrapper({}: Props) {
+  const { classes } = useStyles();
   const [file, setFile] = useState<File | null>(null);
 
   const form = useForm({
@@ -61,17 +66,19 @@ function CustomHeaderWrapper({}: Props) {
     <>
       <CustomHeader img={file} links={form.values?.links} />
       <Box sx={{ maxWidth: 600 }} mx="auto">
-        <>
-          <NumberInput
-            radius="md"
-            mt="sm"
-            label="Number Of links"
-            placeholder="How many links?..."
-            min={1}
-            max={4}
-            onChange={(val: Number) => console.log(val)}
-            {...form.getInputProps("linksNumber")}
-          />
+        <Paper shadow="lg" radius="lg" p="lg" withBorder>
+          <Title order={6}>Your Website's Links</Title>
+          <div className={classes.numberInputContainer}>
+            <Text>Numbers of links</Text>
+            <NumberInput
+              radius="sm"
+              mt="sm"
+              placeholder="How many links?..."
+              min={1}
+              max={4}
+              {...form.getInputProps("linksNumber")}
+            />
+          </div>
           {fields.length > 0 && (
             <Group mt="xs" mb="xs">
               <Text weight={500} size="sm" sx={{ flex: 1 }}>
@@ -83,7 +90,8 @@ function CustomHeaderWrapper({}: Props) {
           {fields}
 
           <Group position="center" mt="md">
-            <Button
+            <CustomButton
+              label="Add Link"
               disabled={form.values.links.length >= form.values.linksNumber}
               onClick={() =>
                 form.insertListItem("links", {
@@ -91,12 +99,13 @@ function CustomHeaderWrapper({}: Props) {
                   value: randomId(),
                 })
               }
-            >
-              Add Link
-            </Button>
+            />
           </Group>
-          <CustomFileButton file={file} setFile={setFile} />  
-        </>
+        </Paper>
+        <Paper shadow="lg" radius="lg" p="lg" mt="lg" withBorder>
+          <Title order={6}>Your Website's Icon</Title>
+          <CustomFileButton file={file} setFile={setFile} />
+        </Paper>
       </Box>
     </>
   );

@@ -68,4 +68,13 @@ export const useStyles = createStyles((theme) => ({
       color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
     },
   },
+  label: {
+    position: 'absolute',
+    pointerEvents: 'none',
+    fontSize: theme.fontSizes.xs,
+    paddingLeft: theme.spacing.sm,
+    paddingTop: theme.spacing.sm / 2,
+    zIndex: 1,
+  },
+
 }));

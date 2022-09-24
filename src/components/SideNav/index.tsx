@@ -31,31 +31,17 @@ export function SideNav({ components }: JSXElementArray) {
   });
 
   useEffect(() => {
-    if (active === '') {
-      window.location.hash = '#header';
-      setActive('Header')
+    if (active === "") {
+      window.location.hash = "#header";
+      setActive("Header");
     }
-  }, [active])
+  }, [active]);
 
   return (
     <Navbar className={classes.navbar} width={{ sm: 300 }} p="md">
-      <Navbar.Section grow>
-        <Group className={classes.header} position="apart">
-          <em>Sites Wizard</em>
-        </Group>
-        {links}
-      </Navbar.Section>
+      <Navbar.Section grow>{links}</Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
-          <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-          <span>Change account</span>
-        </a>
-
         <a
           href="#"
           className={classes.link}
